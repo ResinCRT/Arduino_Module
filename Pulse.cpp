@@ -17,7 +17,7 @@ void Pulse::play(){
     value = HIGH;
     oldTime = millis();
 }
-void stop(){
+void Pulse::stop(){
     value = LOW;
     state = false;
 }
@@ -33,6 +33,6 @@ void Pulse::run(){
         value = !value;
     }
     if(callback != NULL){
-        callback(value);
+        callback();
     }
 }
