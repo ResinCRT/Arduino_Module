@@ -14,3 +14,23 @@ void BtMiniCom::init() {
 void BtMiniCom::send(const char *msg) {
     btSerial.println(msg);
 }
+
+String BtMiniCom::readLine() {
+    String line = "";
+    while(btSerial.available()) {
+        char ch = btSerial.read();
+        if(ch == '\r') continue;
+        if(ch == '\n') break;
+        line += ch;
+        delay(5);
+    }
+    return line;
+}
+
+void BtMiniCom::run() {
+    String line = readLine();
+    if(line != "" && callback != NULL) {
+        callback(line);
+    }
+    MiniCom::run();
+}
