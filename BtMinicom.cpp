@@ -22,7 +22,7 @@ String BtMinicom::readLine() {
         if(ch == '\r') continue;
         if(ch == '\n') break;
         line += ch;
-        delay(5);
+        delay(15);
     }
     return line;
 }

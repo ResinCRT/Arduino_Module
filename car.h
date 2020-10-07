@@ -15,5 +15,5 @@ public:
     void turnRight(int speed=200);
     void turnLeft(int speed=200);
     void stop();
-    void setSpeed(int speed=200);
+    void setSpeed(int rspeed=200, int lspeed=200);
 };

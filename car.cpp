@@ -23,7 +23,7 @@ void Car::stop(){
     right.stop();
     left.stop();
 }
-void Car::setSpeed(int speed){
-    right.setSpeed(speed);
-    left.setSpeed(speed);
+void Car::setSpeed(int rspeed, int lspeed){
+    right.setSpeed(rspeed);
+    left.setSpeed(lspeed);
 }
