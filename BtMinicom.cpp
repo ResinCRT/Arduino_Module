@@ -1,21 +1,21 @@
-#include "BtMiniCom.h"
+#include "BtMinicom.h"
 
-BtMiniCom::BtMiniCom(int rx, int tx,  bt_callback_t callback) 
-    : MiniCom(), btSerial(rx, tx){
+BtMinicom::BtMinicom(int rx, int tx,  bt_callback_t callback) 
+    : Minicom(), btSerial(rx, tx){
     this->callback = callback;   
 }
 
-void BtMiniCom::init() {
+void BtMinicom::init() {
     btSerial.begin(9600);
-    MiniCom::init();
+    Minicom::init();
 }
 
 
-void BtMiniCom::send(const char *msg) {
+void BtMinicom::send(const char *msg) {
     btSerial.println(msg);
 }
 
-String BtMiniCom::readLine() {
+String BtMinicom::readLine() {
     String line = "";
     while(btSerial.available()) {
         char ch = btSerial.read();
@@ -27,10 +27,10 @@ String BtMiniCom::readLine() {
     return line;
 }
 
-void BtMiniCom::run() {
+void BtMinicom::run() {
     String line = readLine();
     if(line != "" && callback != NULL) {
         callback(line);
     }
-    MiniCom::run();
+    Minicom::run();
 }
