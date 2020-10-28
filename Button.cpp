@@ -9,9 +9,11 @@ Button::Button(int pin){
 int Button::read(){
     return !digitalRead(pin);
 }
+
 void Button::setCallback(button_callback_t callback){
     this->callback = callback;
 }
+
 void Button::check(){
     state_current = digitalRead(pin);
     if(!state_current)  {

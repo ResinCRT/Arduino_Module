@@ -1,5 +1,4 @@
 #pragma once
-//헤더 인클루드시 한번만
 #include <Arduino.h>
 
 class Led{
